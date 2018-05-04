@@ -274,6 +274,7 @@ class FrontPanelDevices:
         fp_handle = lib.okFrontPanelDevices_Open(self._handle, serial.encode('ascii'))
         return FrontPanel(fp_handle)
 
+
 def check(error_code):
     """ Check routine for the received error codes.
     @param func_val int: return error code of the called function.
@@ -287,10 +288,10 @@ def check(error_code):
     """
     if error_code < 0:
         msg = FrontPanel.GetErrorString(error_code)
-        print(
+        sys.stderr.write(
             'Error in Opal Kelly okFrontPanel with errorcode {0}: '
-            '{1}'.format(error_code, msg),
-            file=sys.stderr)
+            '{1}\n'.format(error_code, msg)
+        )
     return error_code
 
 
