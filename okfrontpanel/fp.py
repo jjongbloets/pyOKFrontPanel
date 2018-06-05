@@ -2,6 +2,7 @@
 """ Classes
 """
 
+from __future__ import print_function
 import os
 import sys
 import struct
@@ -288,9 +289,10 @@ def check(error_code):
     """
     if error_code < 0:
         msg = FrontPanel.GetErrorString(error_code)
-        sys.stderr.write(
+        print(
             'Error in Opal Kelly okFrontPanel with errorcode {0}: '
-            '{1}\n'.format(error_code, msg)
+            '{1}\n'.format(error_code, msg),
+            file=sys.stderr
         )
     return error_code
 
