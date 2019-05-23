@@ -27,6 +27,20 @@ If the prerequisites are fulfilled for either Windows or Linux based systems, th
 
 which will trigger the compilation of OpalKelly Wrapper together with the header file (`okFrontPanelDLL.h`) of the front panel by using the mentioned C compiler above.
 
+### Header location
+
+Sometimes `clang` is unable to find the header file (`okFrontPanelDLL.h`), in that case set the following environment variables:
+
+    export LDFLAGS=-L<path to lib>
+    export CPPFLAGS=-I<path to include>
+
+For example:
+
+    export LDFLAGS=-L/usr/local/lib
+    export CPPFLAGS=-I/usr/local/include
+   
+Then run pip again.
+ 
 # API status
 
 
